@@ -1,11 +1,11 @@
 const userData={
   Emails:['a','b','c','d','e','f'],
-  Roles:['Admin','Admin','Owner','User','User','User'],
+  Roles:['Admin','Admin','User','User','User','User'],
 }
 
 const adData={
   Groups:['Medical','Technology','Finance','Engineering','Marketing','Design'],
-  Roles:['Owner','Admin','Owner','User','User','User'],
+  Roles:['Owner','Admin','User','User','User','User'],
   Verification:[`Active`,'Active','Disabled','Disabled','Disabled','Disabled'],
 }
 
@@ -13,7 +13,6 @@ const adState=[]
 
 let addiontalButtons = `
   <button class="secondary change-roles added"><span>Change Role</span></button>
-  <button class="secondary reset-mfa added"><span>Reset Multi-Factor</span></button>
   <button class="secondary change-roles added"><span>Remove User</span></button>
 `
 
@@ -24,8 +23,7 @@ function tableData(){
     $('.prev-bills').append(
       `<tr>
         <td><input class="checkBox" type="checkbox">${userData.Emails[i]}@nutanix.com</td>
-        <td>${adData.Roles[i]}</td>
-        <td>${adData.Verification[i]}<kbd>•</kbd></td>
+        <td>${adData.Roles[i]}<kbd>•</kbd></td>
     </tr>`);
   }
 
