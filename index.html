@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+  <link rel="stylesheet" href="https://john00123.github.io/ntnx-tile/font/font.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Xi Cloud Billing</title>
+</head>
+
+<body>
+  <header></header>
+
+  <article class="container">
+    <div class="actions">
+      <button class="primary invite"><span>Invite users</span></button>
+
+
+      <!-- <button class="secondary enable-mult-auth"><span>Enable Multifactor</span></button> -->
+<!--
+      <button class="manage"><span>Add AD</span></button> -->
+
+    </div>
+
+    <div class='card-deck'>
+      <div class='card'>
+        <div class='card-header'> Active Directory</div>
+        <div class='card-body'>
+          <p>Domain - win-0m6tel93cfn.nutanix.com
+          <kbd>Federated Authentication <code>Active</code>
+          https://demo-my.nutanix.com/#xinutanix
+          <a class=''>Manage </a>
+        </kbd></p>
+        </div>
+      </div>
+
+      <div class='card'>
+        <div class='card-header'> Group Roles</div>
+        <div class='card-body'>
+          <p>Groups imported for AD
+          <kbd>You organizational unit
+            has not groups available.
+            <a>Map User Groups</a>
+        </kbd></p>
+        </div>
+      </div>
+    </div>
+    <!-- <table class="table ad-groups">
+      <thead>
+        <tr class='table-header'>
+          <th><input id="checkBox0" type="checkbox">Active Directory Groups</th>
+          <th>Role Assignment</th>
+          <th>2 Step Verification</th>
+        </tr>
+      </thead>
+      <tbody class='groups'></tbody>
+    </table> -->
+
+    <table class="table tprev-bills">
+      <thead>
+        <tr class='table-header'>
+          <th><input id="checkBox0" type="checkbox">Users</th>
+          <th>Role Assignment</th>
+          <th>Multi-Factor Status</th>
+        </tr>
+      </thead>
+      <tbody class='prev-bills'></tbody>
+    </table>
+  </article>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="js/header.js" charset="utf-8"></script>
+  <script src="js/script.js" charset="utf-8"></script>
+</body>
+
+</html>

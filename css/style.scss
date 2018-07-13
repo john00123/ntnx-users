@@ -1,0 +1,620 @@
+//Comment for compiler
+@import '../../_ntnx/variables';
+@import '../../_ntnx/mixins';
+
+span{
+  line-height: 10px;
+  height: 10px;
+  @include transition(all);
+  display: block;
+}
+
+html {
+  @include font;
+  background-color:$light-grey-3;
+  overflow-x: hidden;
+}
+
+body {
+  @include size(100%, 100%);
+  overflow-x: hidden;
+}
+
+h4{
+  font:$h3-alt;
+  line-height: 9pt;
+  display: block;
+  height: 10px;
+  font-weight: 500;
+  code{
+    font-weight: 400;
+    color:$font-color-3;
+    padding-left: 10px;
+    kbd{
+      margin: 0 7px;
+    }
+  }
+}
+
+header {
+  @include size(60px, 100%);
+  padding: 20px 20px;
+  @include flex(center, center, '');
+  background-color: $background-color-1;
+  color: transparent;
+  svg{
+    fill:$background-color-2;
+    @include size(24px, 24px);
+  }
+}
+
+//container
+.container {
+  @include size(100%, 100%);
+  @include flex(center, center, column);
+  max-width: 1280px;
+  margin: 8px auto;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+//actions
+.actions {
+  @include flex(center, flex-start, row);
+  @include size(auto, 100%);
+
+  .primary {
+    @include primary;
+    margin-right: 10px;
+    &:hover{
+      @include shadow;
+    }
+  }
+
+  .secondary{
+    @include secondary-alt
+    margin-right: 10px;
+  }
+
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    @include secondary-alt;
+    font-size: 14px;
+    height: 32px;
+    width: 78px;
+    font-weight: 500;
+    text-align: center;
+  }
+}
+
+select[disabled]{
+  color:$font-color-4;
+  border-color: transparent;
+  pointer-events: none;
+}
+
+input[type='checkbox']{
+margin-right: 10px;
+}
+
+.card-deck{
+  @include size(auto, 100%);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  margin-bottom: 20px;
+}
+
+
+.card{
+  border-radius: 4px;
+  margin-top: 20px;
+  @include size(150px, 100%);
+  min-width: 300px;
+
+  code{
+    border: 1px solid $green-2;
+    color:$dark-green-3;
+    border-radius: 3px;
+    font-size: 12px;
+    padding: 0 5px;
+    margin-left: 5px;
+  }
+
+  .card-header{
+    @include size(40px, 100%);
+    @include flex(center, flex-start, row);
+    border-bottom: 1px solid $border-color-3;
+    font-weight: 500;
+    background-color: white;
+    border-radius: 4px 4px 0 0 ;
+    padding: 0 20px;
+  }
+
+  .card-body{
+    border-radius: 0 0 4px 4px;
+    padding: 20px;
+    p{white-space: pre-line;
+      font-weight: 500;
+    line-height:1.5}
+    background-color: white;
+    kbd{color:$font-color-2;
+    font-weight:400;
+    a{@include link;}
+    }
+  }
+}
+
+/* ==========================================================================
+Table
+========================================================================== */
+.table{
+  margin-top: 20px;
+  width: 100%;
+  background-color: white;
+  border-radius: 6px;
+}
+
+.table:hover{
+  @include shadow;
+  tr:last-child{
+    border-bottom: none;
+    border-radius: 0px 0px 4px 4px;
+    td{
+      border-bottom: 1px solid transparent;
+      border-radius: 0px 0px 4px 4px;
+    }
+  }
+  thead tr:first-child{
+    background: none;
+  }
+}
+
+th{
+  font:$h4;
+  color:$font-color-2;
+  font-weight: 500;
+}
+
+th:not(:last-child){
+  border-right: 1px solid $border-color-3;
+}
+
+
+th, td{
+  height: 40px;
+  text-align: left;
+  padding-left: 20px;
+  line-height: 10px;
+  vertical-align: middle;
+  border-bottom: 1px solid $border-color-3;
+  code{
+    background-color: $light-blue-3;
+    border-radius: 2px;
+    padding: 1px 5px;
+    color: $blue-1;
+    font-size: 12px;
+    margin-right: 7px;
+  }
+  a{
+    color:$font-color-3;
+    margin-left: 5px;
+  }
+}
+
+th:last-child, td:last-child{
+  text-align: right;
+  vertical-align: middle;
+  padding-right: 20px;
+  width: 120px;
+}
+tr:hover{
+  background-color: $semi-white-blue;
+  cursor: pointer;
+}
+td:last-child{
+  margin-left: -50px;
+  position: relative;
+  right: 15px;
+  a{
+    @include link();
+  }
+}
+
+th:not(:first-child), td:not(:first-child){
+  width: 140px;
+}
+
+td{
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+td kbd{
+  margin-left: 10px;
+  color:$grey-2;
+  position:absolute;
+  font-size: 11px;
+  height: 8px;
+  width: 20px;
+  right: 5px;
+
+  &::before{
+    color:$grey-2;
+    content: '•';
+    position: absolute;
+    top:-4px;
+  }
+  &::after{
+    color:$grey-2;
+    content: '•';
+    position: absolute;
+    top:4px;
+    right:0px;
+  }
+  &:hover, &:hover::before, &:hover::after{
+    color:$blue-1;
+    cursor: pointer;
+  }
+}
+
+.table-header:hover{
+  background-color: white;
+  cursor: initial;
+}
+
+.usage td:last-child{
+  right: 0;
+  margin-left: 0;
+}
+
+/*Popup
+========================================================================== */
+.overlay{
+  @include size(100%, 100%);
+  @include flex(center, center, column);
+  @include absolute();
+  position: fixed;
+  top:0;
+  left: 0;
+  background-color: rgba(0,0,0,0.4);
+  overflow: hidden;
+  @include transition(all);
+}
+
+.popup{
+  @include size(auto,400px);
+  @include shadow;
+}
+
+.popup-header{
+  @include flex(center, center ,row);
+  @include size(auto, 100%);
+  position:relative;
+  background-color: white;
+  border-radius: 4px 4px 0 0;
+  padding: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid $border-color-3;
+  line-height: 10px;
+
+  &:hover::before, &:hover::after{
+    background-color:$font-color-1;
+  }
+
+  &:hover{
+    cursor: pointer;
+  }
+
+  &::before, &::after{
+  content:'';
+  @include absolute(18px,'',23px);
+  @include size(14px, 2px);
+  border-radius: 3px;
+  display: block;
+  background-color: $font-color-3;
+  }
+
+  &::before{
+    transform: rotate(45deg);
+  }
+  &::after{
+    transform: rotate(-45deg);
+  }
+}
+
+.popup-body{
+  @include size(auto,100%);
+  @include flex(center, flex-start, column);
+  @include inputStyle;
+  padding: 30px 20px;
+  background-color: white;
+
+  h1{
+    font: $h3;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    margin-top: -8px;
+    width: 100%;
+  }
+
+  h3{
+    font: $h3;
+    line-height: 1.5;
+    font-weight: 400;
+    margin-bottom: 15px;
+    margin-top: -8px;
+    width: 100%;
+    code{
+      background-color: $light-blue-3;
+      color:$dark-blue-3;
+      padding: 0 5px;
+      border-radius: 2px;
+    }
+  }
+
+  p{
+    line-height: 1.5;
+    margin-bottom: -6px;
+    color: $font-color-2;
+  }
+
+
+  .separator{
+    @include size(1px, 100%);
+    background-color: $border-color-3;
+    margin: 30px 0;
+  }
+
+  .primary{
+    @include size(32px, 100%);
+    @include primary;
+    margin-top: 20px;
+  }
+
+  .secondary{
+    @include size(32px, 100%);
+    @include secondary;
+    margin-top: 20px;
+  }
+
+  input.confirm-deletion{
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+
+  .delete{
+    border-radius: 4px;
+    border: none;
+    margin-top: 20px;
+    background-color: $red-1;
+    &:hover{
+      background-color: $dark-red-3;
+    }
+  }
+  input[type="file"]{
+    display: none;
+  }
+
+  .upload-file{
+    width: 100%;
+
+    @include flex(center, space-between, row);
+    .file-button{
+
+      @include secondary;
+      @include size(32px, 121px);
+      border-radius: 0 4px 4px 0;
+      border-left:none;
+      border-color: $border-color-1;
+    }
+
+    input.path{
+      margin: 0;
+      display: flex;
+      flex-grow: 1;
+      border-radius: 4px 0 0 4px;
+    }
+  }
+}
+
+.popup-footer{
+  @include flex(center,flex-end,row);
+  @include size(72px, 100%);
+  border-radius:
+  0   0
+  4px 4px;
+  border-top: 1px solid $border-color-3;
+  background-color: white;
+  padding: 20px;
+
+  .primary{
+    @include primary;
+    border: 1px solid transparent;
+    height: 32px;
+    margin-left: 10px;
+  }
+
+  .secondary{
+    @include secondary;
+    height: 32px;
+    box-sizing: border-box;
+
+  }
+
+}
+
+.dot-parent{
+  @include flex(center,center,row);
+  @include size(35px, 35px);
+  display: block;
+  margin-bottom: 30px;
+  background:url(/img/circle2.svg);
+  background-size:contain;
+  background-repeat: no-repeat;
+  position: relative;
+  &::after{
+    @include flex(center, center,row);
+    position: absolute;
+    content: '2';
+    font-size: 10px;
+    padding: 5px;
+    color:white;
+    font-weight: 500;
+    right: -4px;
+    border-radius: 2pc;
+    @include size(7px,7px);
+    box-sizing: content-box;
+    background-color: $red-1;
+  }
+}
+
+.second{
+  &::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 4px;
+  }
+  animation: layer 600ms $animation 100ms forwards;
+}
+
+.show{
+  animation: shows 600ms $animation 100ms forwards;
+}
+
+.peek{
+  animation: hides 600ms $animation forwards;
+}
+
+.appear{
+  animation: appear 600ms $animation 100ms forwards;
+}
+
+.disappear{
+  animation: disappear 600ms $animation forwards;
+}
+
+
+/* ==========================================================================
+Animation
+========================================================================== */
+
+@keyframes appear {
+  from{
+    opacity: 0;
+    transform:translate3d(0, 50px, 0);
+  }
+
+  to{
+    opacity: 1;
+    transform:translate3d(0, 0, 0);
+  }
+}
+
+@keyframes disappear {
+  from{
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  to{
+    opacity: 0;
+    transform: translate3d(0, 50px, 0);
+  }
+}
+
+@keyframes shows {
+  from{ opacity: 0;}
+  to{ opacity: 1; }
+}
+
+@keyframes hides {
+  from{ opacity: 1;}
+  to{ opacity: 0;}
+}
+
+
+@keyframes layer{
+  from{
+    opacity: 1;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  to{
+    opacity: 1;
+    transform: scale(0.95) translate3d(0, -45px, 0);
+  }
+}
+
+@keyframes reverse-layer{
+  from{
+    opacity: 0.4;
+    transform: scale(0.95) translate3d(0, -45px, 0);
+  }
+  to{
+    opacity: 1;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+/* ==========================================================================
+Media Queries
+========================================================================== */
+
+
+@media (max-width: 1024px) {
+  .deck {
+    .card {
+      width: calc(50% - 10px);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .deck {
+    .card {
+      width: 100%;
+    }
+  }
+
+  .container{
+    min-width: 320px;
+  }
+
+  th:not(:first-child), td:not(:first-child){
+    width: 65px;
+  }
+
+}
+
+@media (max-width: 420px) {
+  .actions {
+    @include flex(stretch, flex-start, column);
+    .primary{
+      margin-right: 0;
+    }
+    .secondary{
+      margin-top: 10px;
+      margin-right: 0;
+    }
+  }
+
+  .overlay{
+    padding: 20px;
+  }
+  .popup{
+    width: 100%;
+  }
+
+  h4 code{display: none;}
+  td a{display: none;}
+  td code{display: none;}
+}
