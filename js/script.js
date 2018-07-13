@@ -32,7 +32,7 @@ function tableData(){
       `<tr>
         <td><input class="checkBox" type="checkbox">${adData.Groups[i]}</td>
         <td>${adData.Roles[i]}</td>
-        <td>${adData.Verification[i]}<kbd>•</kbd></td>
+        <td>${adData.Roles[i]}<kbd>•</kbd></td>
     </tr>`);
   }
 }
